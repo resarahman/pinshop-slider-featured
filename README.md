@@ -2,6 +2,7 @@ pinshop-slider-featured
 =======================
 
 Pinshop Child Theme
+Author @themify
 
 Based on request from support forum http://themify.me/forum/topic.php?id=10286
 
