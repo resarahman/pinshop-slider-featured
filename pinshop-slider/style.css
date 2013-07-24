@@ -6,3 +6,32 @@ Template: pinshop
 */
 
 @import url("../pinshop/style.css");
+
+.product-slides-2 {
+	margin: 0;
+	padding: 0;
+}
+.product-slides-2 li {
+	margin: 6px 8px 0 8px;
+	padding: 0;
+	list-style: none;
+	float: left;
+	text-align: center;
+}
+
+/* Reset .product style in slider */
+.product-slides-2 .product {
+	width: auto;
+}
+.product-slides-2 .product-imagewrap {
+	margin: 0 !important;
+	float: none !important;
+}
+
+/* Sale tag */
+.product-slides-2 .product .onsale {
+	padding: 16px 6px;
+	padding: 14px 6px\9;
+	top: -5px;
+	left: -5px;
+}

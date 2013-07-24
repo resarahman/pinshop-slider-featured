@@ -98,7 +98,6 @@ if(!function_exists('themify_second_slider')){
 		$output .= '	</select>
 					</p>';	
 					
-		/*	
 		$output .= '<p>
 						<span class="label">' . __('Visible', 'themify') . '</span> 
 						<select name="'.$prefix.'visible">';
@@ -163,8 +162,32 @@ if(!function_exists('themify_second_slider')){
 							}
 			$output .=	'</select>
 					</p>				
-					</div>';*/		
+					</div>';
 		return $output;
 	}
 }
+
+function child_theme_enqueue_scripts(){
+	if( themify_woocommerce_active() ) {
+		//Themify shop script
+		wp_enqueue_script( 'theme-shop-2',	get_stylesheet_directory_uri() . '/js/featured.js', array('jquery'), false, true );
+
+		// Get carousel variables
+		$carou_visible = themify_get('setting-product_slider_2_visible');
+		$carou_autoplay = themify_get('setting-product_slider_2_auto');
+		$carou_speed = themify_get('setting-product_slider_2_speed');
+		$carou_scroll = themify_get('setting-product_slider_2_scroll');
+		$carou_wrap = themify_get('setting-product_slider_2_wrap');
+		//Inject variable values in themify.shop.js
+		wp_localize_script( 'theme-shop-2', 'themifyShop2', array(
+				'visible'	=> $carou_visible? $carou_visible : '4',
+				'autoplay'	=> $carou_autoplay? $carou_autoplay : 0,
+				'speed'	=> $carou_speed? $carou_speed : 300,
+				'scroll'	=> $carou_scroll? $carou_scroll : 1,
+				'wrap'	=> ('' == $carou_wrap || 'yes' == $carou_wrap)? 'circular' : null
+			)
+		);
+	}
+}
+add_action('wp_enqueue_scripts', 'child_theme_enqueue_scripts');
 ?>

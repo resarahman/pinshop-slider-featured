@@ -38,7 +38,7 @@ if('' == themify_get($prefix.'enabled') || 'on' == themify_get($prefix.'enabled'
 		
 			<div class="product-slider clearfix">
 	
-				<ul class="product-slides">
+				<ul class="product-slides-2">
 					
 	       	<?php while ($loop->have_posts()) : $loop->the_post(); ?>
 	       				
